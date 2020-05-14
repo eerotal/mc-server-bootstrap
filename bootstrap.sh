@@ -28,6 +28,6 @@ echo "[Info] Determining latest server version..."
 server_url="$(python server_download_url.py)"
 
 echo "[Info] Downloading Minecarft server.jar..."
-wget -nv -O asd.jar "$server_url"
+wget -nv -O server.jar "$server_url"
 
 echo "[Info] Server setup finished! Start the server with ./start.sh."
