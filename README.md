@@ -1,5 +1,5 @@
 Minecraft server setup scripts
-##############################
+------------------------------
 
 This repo contains some scripts for bootstrapping and running a vanilla
 Minecraft server.
