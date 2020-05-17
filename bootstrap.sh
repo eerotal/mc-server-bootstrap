@@ -2,7 +2,7 @@
 
 echo "[Info] Installing packages..."
 
-sudo apt install iptables iptables-persistent wget -y
+sudo apt install iptables iptables-persistent wget default-jre -y
 
 echo "[Info] Setting up iptables..."
 
@@ -24,10 +24,9 @@ sudo iptables -A OUTPUT -p tcp -m tcp --dport 443 -m conntrack --ctstate NEW,EST
 sudo iptables -A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
 sudo iptables -A OUTPUT -j DROP
 
-echo "[Info] Determining latest server version..."
-server_url="$(python server_download_url.py)"
+read -p "Please enter the server.jar download URL: " server_url
 
 echo "[Info] Downloading Minecarft server.jar..."
 wget -nv -O server.jar "$server_url"
 
-echo "[Info] Server setup finished! Start the server with ./start.sh."
+echo "[Info] Server setup finished! Start the server with ./server.sh."
