@@ -2,7 +2,7 @@
 
 echo "[Info] Installing packages..."
 
-sudo apt install iptables iptables-persistent wget default-jre -y
+sudo apt install iptables wget default-jre -y
 
 echo "[Info] Setting up iptables..."
 
@@ -23,6 +23,10 @@ sudo iptables -A OUTPUT -p tcp -m tcp --dport 80 -m conntrack --ctstate NEW,ESTA
 sudo iptables -A OUTPUT -p tcp -m tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 sudo iptables -A OUTPUT -p udp -m udp --dport 53 -j ACCEPT
 sudo iptables -A OUTPUT -j DROP
+
+echo "[Info] Setting up iptables-persistent..."
+
+sudo apt install iptables-persistent
 
 read -p "Please enter the server.jar download URL: " server_url
 
